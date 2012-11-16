@@ -18,7 +18,7 @@ class AuthenticatedGenerator <  Rails::Generators::NamedBase
   def self.source_root
     @source_root ||= File.expand_path(File.join(File.dirname(__FILE__), 'templates'))
   end
-  
+
   def initialize(*args, &block)
     super
     controller_base_name
@@ -69,7 +69,7 @@ class AuthenticatedGenerator <  Rails::Generators::NamedBase
       # RSpec Specs
       template 'spec/controllers/users_controller_spec.rb', File.join('spec/controllers', model_controller_class_path, "#{ model_controller_file_name }_controller_spec.rb")
       template 'spec/controllers/sessions_controller_spec.rb', File.join('spec/controllers', controller_class_path, "#{ controller_file_name }_controller_spec.rb")
-      template 'spec/controllers/access_control_spec.rb', File.join('spec/controllers', controller_class_path, "access_control_spec.rb") 
+      template 'spec/controllers/access_control_spec.rb', File.join('spec/controllers', controller_class_path, "access_control_spec.rb")
       template 'spec/controllers/authenticated_system_spec.rb', File.join('spec/controllers', controller_class_path, "authenticated_system_spec.rb")
       template 'spec/helpers/users_helper_spec.rb', File.join('spec/helpers', model_controller_class_path, "#{ table_name }_helper_spec.rb")
       template 'spec/models/user_spec.rb', File.join('spec/models' , class_path, "#{ file_name }_spec.rb")
@@ -88,7 +88,7 @@ class AuthenticatedGenerator <  Rails::Generators::NamedBase
     else
       template 'test/functional_test.rb', File.join('test/functional', controller_class_path, "#{ controller_file_name }_controller_test.rb")
       template 'test/model_functional_test.rb', File.join('test/functional', model_controller_class_path, "#{ model_controller_file_name }_controller_test.rb")
-      template 'test/unit_test.rb', File.join('test/unit', class_path, "#{ file_name }_test.rb") 
+      template 'test/unit_test.rb', File.join('test/unit', class_path, "#{ file_name }_test.rb")
       if options.include_activation?
         template 'test/mailer_test.rb', File.join('test/functional', class_path, "#{ file_name }_mailer_test.rb")
       end
@@ -316,10 +316,10 @@ class AuthenticatedGenerator <  Rails::Generators::NamedBase
   def model_controller_controller_name # users
     model_controller_plural_name
   end
-  
+
   alias_method  :model_controller_file_name,  :model_controller_singular_name
   alias_method  :model_controller_table_name, :model_controller_plural_name
-  
+
   private
 
   def controller_base_name

@@ -6,13 +6,13 @@ class <%= class_name %>Mailer < ActionMailer::Base
        @url  = <% if options.include_activation? %>"http://YOURSITE/activate/#{<%= file_name %>.activation_code}"<%
      else %>"http://YOURSITE/login/" <% end %>
   end
-  
+
   def activation(<%= file_name %>)
     setup_email(<%= file_name %>)
     @subject    += 'Your account has been activated!'
     @url  = "http://YOURSITE/"
   end
-  
+
   protected
 
   def setup_email(<%= file_name %>)

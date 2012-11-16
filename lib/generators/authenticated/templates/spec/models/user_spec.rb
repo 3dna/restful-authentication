@@ -126,7 +126,7 @@ describe User do
      ].each do |name_str|
       it "'#{name_str}'" do
         lambda do
-          u = create_user(:name => name_str) 
+          u = create_user(:name => name_str)
           u.errors.get(:name).should_not be_nil
         end.should_not change(User, :count)
       end

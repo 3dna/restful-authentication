@@ -53,7 +53,7 @@ describe AccessControlTestController do
       _routes.draw do
         match 'login_is_required'  => 'access_control_test#login_is_required'
         match 'login_not_required' => 'access_control_test#login_not_required'
-    end  
+    end
       ActiveSupport.on_load(:action_controller) { _routes.finalize! }
     ensure
       _routes.disable_clear_and_finalize = false
@@ -72,7 +72,7 @@ describe AccessControlTestController do
 
           if ((login_reqd_status == :login_not_required) ||
               (login_reqd_status == :login_is_required && logged_in_status == :i_am_logged_in))
-            it "succeeds" do 
+            it "succeeds" do
               response.body.should == success_text
               response.code.to_s.should == '200'
             end
